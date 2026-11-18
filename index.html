@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <!-- Pengaturan dasar: karakter Indonesia dan skala layar ponsel -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Judul tab browser dan deskripsi untuk mesin pencari -->
+    <title>Alya Rahma | Frontend Web Developer</title>
+    <meta
+      name="description"
+      content="Portofolio Alya Rahma, Frontend Web Developer: perkenalan, keahlian, karya, dan cara menghubungi saya."
+    />
+
+    <!-- Ikon tab berupa emoji lewat SVG sebaris, tanpa file tambahan -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"
+    />
+
+    <!-- Font Poppins dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tautan ke file gaya -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- AREA MENU: header tetap di atas saat halaman digulir -->
+    <header class="site-header">
+      <div class="container header-isi">
+        <a href="#home" class="logo">Alya<span class="logo-titik">.</span></a>
+        <nav aria-label="Menu utama">
+          <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- AREA ISI UTAMA: lima bagian berurutan -->
+    <main>
+      <!-- BAGIAN 1: HOME (perkenalan) -->
+      <section id="home" class="bagian">
+        <div class="container hero">
+          <!-- Kolom kiri: teks perkenalan -->
+          <div class="hero-teks">
+            <p class="hero-sapaan">Halo, saya</p>
+            <h1>Alya Rahma</h1>
+            <p class="hero-profesi">Frontend Web Developer</p>
+            <p class="hero-deskripsi">
+              Saya membangun situs web yang bersih, cepat, dan mudah digunakan
+              di komputer maupun ponsel. Saya senang mengubah ide sederhana
+              menjadi tampilan yang rapi dan nyaman dilihat.
+            </p>
+
+            <div class="hero-tombol">
+              <a href="#projects" class="tombol">Lihat Proyek</a>
+              <a href="#contact" class="tombol tombol-garis">Hubungi Saya</a>
+            </div>
+          </div>
+
+          <!-- Kolom kanan: foto profil -->
+          <div class="hero-foto">
+            <img
+              src="image/profile.jpg"
+              alt="Foto profil Alya Rahma, Frontend Web Developer, tersenyum di depan latar belakang polos"
+              width="600"
+              height="600"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 2: ABOUT (tentang saya) -->
+      <section id="about" class="bagian">
+        <div class="container">
+          <!-- Judul dan pengantar, rata tengah -->
+          <h2 class="judul-bagian">Tentang Saya</h2>
+          <p class="pengantar-bagian">
+            Berikut sedikit cerita tentang perjalanan dan cara saya bekerja.
+          </p>
+
+          <!-- Isi paragraf, dibatasi 800 piksel dan berada di tengah -->
+          <div class="tentang-isi">
+            <p>
+              <strong>Perkenalan diri.</strong> Nama saya Alya Rahma. Saya
+              adalah Frontend Web Developer yang fokus membuat tampilan website
+              yang bersih, rapi, dan mudah digunakan oleh siapa saja.
+            </p>
+
+            <p>
+              <strong>Latar belakang pendidikan.</strong> Saya belajar di bidang
+              teknologi informasi dan mulai mengenal HTML dan CSS dari proyek
+              kecil yang saya buat sendiri. Dari sana, saya terus berlatih
+              dengan membangun halaman sederhana hingga website yang lebih
+              lengkap.
+            </p>
+
+            <p>
+              <strong>Minat di bidang teknologi.</strong> Saya tertarik pada
+              desain antarmuka, aksesibilitas, dan tampilan yang responsif. Saya
+              percaya website yang baik harus nyaman dibuka di komputer maupun
+              ponsel.
+            </p>
+
+            <p>
+              <strong>Tujuan dan motivasi belajar.</strong> Saya ingin terus
+              memperdalam JavaScript dan alat bantu pengembangan modern.
+              Motivasi saya sederhana: melihat ide berubah menjadi produk yang
+              berguna bagi orang lain.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 3: SKILLS (keahlian) -->
+      <section id="skills" class="bagian">
+        <div class="container">
+          <!-- Judul dan pengantar, memakai gaya yang sama dengan About -->
+          <h2 class="judul-bagian">Keahlian</h2>
+          <p class="pengantar-bagian">
+            Beberapa kemampuan yang saya gunakan setiap hari dalam membangun
+            website.
+          </p>
+
+          <!-- Enam kartu keahlian: tiga kolom dua baris di komputer -->
+          <div class="skills-grid">
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">🌐</span>
+              <h3>HTML5</h3>
+              <p>
+                Menyusun struktur halaman yang bermakna dan mudah dibaca mesin
+                pencari.
+              </p>
+            </article>
+
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">🎨</span>
+              <h3>CSS3</h3>
+              <p>
+                Mengatur warna, tata letak, dan animasi halus agar tampilan
+                rapi.
+              </p>
+            </article>
+
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">🖌️</span>
+              <h3>UI Design</h3>
+              <p>
+                Merancang antarmuka yang jelas, konsisten, dan nyaman digunakan.
+              </p>
+            </article>
+
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">📱</span>
+              <h3>Responsive Design</h3>
+              <p>
+                Membuat tampilan menyesuaikan diri dengan layar komputer,
+                tablet, dan ponsel.
+              </p>
+            </article>
+
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">🔀</span>
+              <h3>Git dan GitHub</h3>
+              <p>
+                Mencatat riwayat perubahan kode dan menerbitkan proyek secara
+                terbuka.
+              </p>
+            </article>
+
+            <article class="kartu-keahlian">
+              <span class="ikon-keahlian" aria-hidden="true">🧩</span>
+              <h3>Problem Solving</h3>
+              <p>
+                Memecah masalah besar menjadi langkah kecil yang bisa
+                diselesaikan satu per satu.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 4: PROJECTS (karya) -->
+      <section id="projects" class="bagian">
+        <div class="container">
+          <!-- Judul dan pengantar, memakai gaya yang sama dengan About dan Skills -->
+          <h2 class="judul-bagian">Proyek</h2>
+          <p class="pengantar-bagian">
+            Beberapa karya yang pernah saya buat. Klik Demo untuk melihat
+            tampilannya.
+          </p>
+
+          <!-- Dua kartu proyek: berdampingan di komputer, bertumpuk di ponsel -->
+          <div class="projects-grid">
+            <article class="kartu-proyek">
+              <img
+                src="image/project-1.jpg"
+                alt="Tampilan halaman situs toko kopi dengan foto biji kopi dan tombol pesan di bagian atas"
+                width="1200"
+                height="750"
+                loading="lazy"
+              />
+              <div class="kartu-proyek-isi">
+                <h3>Situs Toko Kopi</h3>
+                <p>
+                  Halaman promosi toko kopi dengan menu, galeri, dan formulir
+                  pemesanan yang nyaman di ponsel.
+                </p>
+                <ul class="label-teknologi">
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                </ul>
+                <div class="kartu-proyek-tombol">
+                  <!-- Tautan contoh: ganti href="#" dengan alamat asli -->
+                  <a href="#" class="tombol tombol-kecil">Demo</a>
+                  <a href="#" class="tombol tombol-garis tombol-kecil"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="kartu-proyek">
+              <img
+                src="image/project-2.jpg"
+                alt="Tampilan dasbor catatan keuangan dengan grafik batang berwarna biru"
+                width="1200"
+                height="750"
+                loading="lazy"
+              />
+              <div class="kartu-proyek-isi">
+                <h3>Dasbor Catatan Keuangan</h3>
+                <p>
+                  Tampilan ringkasan pemasukan dan pengeluaran dengan kartu dan
+                  grafik sederhana.
+                </p>
+                <ul class="label-teknologi">
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                </ul>
+                <div class="kartu-proyek-tombol">
+                  <!-- Tautan contoh: ganti href="#" dengan alamat asli -->
+                  <a href="#" class="tombol tombol-kecil">Demo</a>
+                  <a href="#" class="tombol tombol-garis tombol-kecil"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 5: CONTACT (kontak) -->
+      <section id="contact" class="bagian">
+        <div class="container">
+          <!-- Judul dan ajakan, memakai gaya yang sama dengan bagian lain -->
+          <h2 class="judul-bagian">Hubungi Saya</h2>
+          <p class="pengantar-bagian">
+            Mari berdiskusi tentang ide, proyek, atau peluang kolaborasi.
+          </p>
+
+          <!-- Empat kartu kontak: seluruh area kartu bisa diklik -->
+          <div class="kontak-grid">
+            <a href="mailto:alya@email.com" class="kartu-kontak">
+              <span class="ikon-kontak" aria-hidden="true">✉️</span>
+              <h3>Email</h3>
+              <p class="kontak-detail">alya@email.com</p>
+              <span class="kontak-ajakan">Kirim email →</span>
+            </a>
+
+            <a
+              href="https://github.com/alyarahma"
+              class="kartu-kontak"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ikon-kontak" aria-hidden="true">🐙</span>
+              <h3>GitHub</h3>
+              <p class="kontak-detail">@alyarahma</p>
+              <span class="kontak-ajakan">Kunjungi profil →</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/alyarahma"
+              class="kartu-kontak"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ikon-kontak" aria-hidden="true">💼</span>
+              <h3>LinkedIn</h3>
+              <p class="kontak-detail">@alyarahma</p>
+              <span class="kontak-ajakan">Kunjungi profil →</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/alyarahma"
+              class="kartu-kontak"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ikon-kontak" aria-hidden="true">📸</span>
+              <h3>Instagram</h3>
+              <p class="kontak-detail">@alyarahma</p>
+              <span class="kontak-ajakan">Kunjungi profil →</span>
+            </a>
+          </div>
+
+          <!-- Kotak ketersediaan: status, kalimat pendukung, dan tombol utama -->
+          <div class="ketersediaan">
+            <p class="status-judul">
+              <span class="status-titik" aria-hidden="true"></span>
+              <strong>Tersedia untuk magang dan freelance</strong>
+            </p>
+            <p class="status-pendukung">
+              Saya terbuka untuk diskusi proyek baru. Balasan biasanya datang
+              dalam dua hari kerja.
+            </p>
+            <a href="mailto:alya@email.com" class="tombol">Kirim Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- AREA PENUTUP: bagian paling bawah halaman -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Alya Rahma. Semua hak dilindungi.</p>
+        <p class="footer-note">Dibuat dengan HTML dan CSS</p>
+      </div>
+    </footer>
+  </body>
+</html>

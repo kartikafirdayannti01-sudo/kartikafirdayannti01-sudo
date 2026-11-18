@@ -1,0 +1,722 @@
+/* ===== 1. WARNA DAN VARIABEL (ubah warna hanya di sini) ===== */
+:root {
+  --biru: #2563eb;
+  --biru-hover: #1d4ed8;
+  --biru-muda: #93c5fd;
+  --biru-gelap: #0f172a;
+  --latar: #f8fafc;
+  --teks: #334155;
+  --putih: #ffffff;
+  --putih-transparan: rgba(255, 255, 255, 0.9);
+  --garis: #e2e8f0;
+
+  --font: "Poppins", system-ui, sans-serif;
+  --lebar-maks: 1080px;
+  --radius-kartu: 16px;
+  --radius-tombol: 10px;
+}
+
+/* ===== 2. PENGATURAN AWAL (menyamakan tampilan antar browser) ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Gulir halus saat menu diklik */
+  scroll-behavior: smooth;
+  /* Ruang atas agar judul bagian tidak tertutup header */
+  scroll-padding-top: 6.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--teks);
+  background: var(--latar);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+/* Daftar menu tanpa titik; daftar isi tetap ada titik dan jarak */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== 3. GAYA TEKS, TAUTAN, DAN PENANDA FOKUS ===== */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--biru-gelap);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--biru-gelap);
+  margin-bottom: 1rem;
+}
+
+p {
+  max-width: 65ch;
+}
+
+a {
+  color: var(--biru);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Penanda jelas saat tautan atau tombol dipilih dengan keyboard (tombol Tab) */
+:focus-visible {
+  outline: 3px solid var(--biru);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== 4. PEMBUNGKUS ISI DAN JARAK BAGIAN ===== */
+.container {
+  max-width: var(--lebar-maks);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.bagian {
+  padding-block: 6rem;
+}
+
+/* Latar bagian berselang-seling: putih, putih keabuan, putih, ... */
+main > section:nth-of-type(odd) {
+  background: var(--putih);
+}
+
+main > section:nth-of-type(even) {
+  background: var(--latar);
+}
+/* Bagian About dibuat putih sesuai permintaan (menyimpang dari pola berselang-seling) */
+#about {
+  background: var(--putih);
+}
+
+/* Gaya judul bagian: rata tengah, bisa dipakai ulang di bagian lain */
+.judul-bagian {
+  text-align: center;
+}
+
+/* Pengantar di bawah judul: rata tengah dan dibatasi lebarnya */
+.pengantar-bagian {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+/* Blok isi paragraf: lebar maksimal 800 piksel, di tengah */
+.tentang-isi {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* Paragraf di dalam blok ini mengikuti lebar blok, bukan batas 65ch */
+.tentang-isi p {
+  max-width: none;
+}
+
+.tentang-isi p + p {
+  margin-top: 1.25rem;
+}
+
+/* ===== 5. HEADER (MENU DI ATAS) ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--putih-transparan);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--garis);
+  padding-block: 0.875rem;
+}
+
+.header-isi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--biru-gelap);
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+/* Titik kecil di belakang logo */
+.logo-titik {
+  color: var(--biru);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+}
+
+/* Hapus jarak bawah bawaan agar tautan sejajar */
+.menu li {
+  margin: 0;
+}
+
+.menu a {
+  color: var(--teks);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: var(--biru);
+  text-decoration: none;
+}
+
+/* Tombol dasar, dipakai di bagian berikutnya */
+.tombol {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--biru);
+  color: var(--putih);
+  border: 1px solid var(--biru);
+  border-radius: var(--radius-tombol);
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tombol:hover {
+  background: var(--biru-hover);
+  color: var(--putih);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+/* Tombol bergaris: latar transparan, garis dan teks biru */
+.tombol-garis {
+  background: transparent;
+  color: var(--biru);
+  border-color: var(--biru);
+}
+
+/* Saat disentuh, tombol bergaris terisi biru seperti tombol utama */
+.tombol-garis:hover {
+  background: var(--biru);
+  color: var(--putih);
+}
+
+/* ===== 6A. BAGIAN HOME (PERKENALAN) ===== */
+/* Dua kolom: teks di kiri, foto di kanan (satu kolom di ponsel) */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.hero-sapaan {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--teks);
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.hero-profesi {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--biru);
+  margin-bottom: 1.25rem;
+}
+
+.hero-deskripsi {
+  margin-bottom: 2rem;
+}
+
+/* Tombol berjajar, turun ke baris baru jika ruang sempit */
+.hero-tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Foto lingkaran 320 piksel, terpotong di tengah tanpa gepeng */
+.hero-foto img {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 6px solid var(--biru-muda);
+  margin-inline: auto;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+/* ===== 6B. BAGIAN SKILLS (KEAHLIAN) ===== */
+/* Latar putih keabuan sesuai permintaan (menimpa pola berselang-seling) */
+#skills {
+  background: var(--latar);
+}
+
+/* Grid kartu: satu kolom di ponsel, dua di tablet, tiga di komputer */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Kartu: putih, garis tipis, sudut membulat, ruang dalam lega */
+.kartu-keahlian {
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius-kartu);
+  padding: 2rem 1.75rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Saat disentuh kursor: kartu terangkat sedikit dengan bayangan lembut */
+.kartu-keahlian:hover {
+  transform: translateY(-4px);
+  border-color: var(--biru-muda);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* Ikon emoji berblok dengan jarak bawah */
+.ikon-keahlian {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.kartu-keahlian h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--biru-gelap);
+  margin-bottom: 0.5rem;
+}
+
+.kartu-keahlian p {
+  font-size: 0.95rem;
+}
+/* ===== 6C. BAGIAN PROJECTS (KARYA) ===== */
+/* Latar putih sesuai permintaan (menimpa pola selang-seling) */
+#projects {
+  background: var(--putih);
+}
+
+/* Grid kartu: satu kolom di ponsel, dua kolom dengan jarak 32 piksel di layar lebih lebar */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Kartu: putih, garis tipis, sudut membulat. overflow hidden membuat gambar ikut lengkung sudut */
+.kartu-proyek {
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius-kartu);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Saat disentuh kursor: kartu terangkat halus dengan bayangan lembut */
+.kartu-proyek:hover {
+  transform: translateY(-4px);
+  border-color: var(--biru-muda);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* Gambar memenuhi lebar kartu, tinggi 220 piksel, terpotong di tengah */
+.kartu-proyek img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kartu-proyek-isi {
+  padding: 1.75rem;
+}
+
+.kartu-proyek h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--biru-gelap);
+  margin-bottom: 0.5rem;
+}
+
+.kartu-proyek p {
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Label teknologi: kapsul biru muda, turun baris jika sempit */
+.label-teknologi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.label-teknologi li {
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  background: var(--biru-muda);
+  color: var(--biru-gelap);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Dua tombol kecil berjajar, turun baris jika sempit */
+.kartu-proyek-tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tombol-kecil {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+}
+/* ===== 6D. BAGIAN CONTACT (HUBUNGI SAYA) ===== */
+/* Latar putih keabuan sesuai permintaan */
+#contact {
+  background: var(--latar);
+}
+
+/* Empat kartu: satu kolom di ponsel, dua di tablet, empat di komputer */
+.kontak-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .kontak-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .kontak-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Kartu kontak: seluruh area bisa diklik, tanpa garis bawah, isi rata tengah */
+.kartu-kontak {
+  display: block;
+  height: 100%;
+  padding: 2rem 1.5rem;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius-kartu);
+  text-align: center;
+  color: var(--teks);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Saat disentuh kursor: kartu terangkat, garis biru utama, bayangan kebiruan */
+.kartu-kontak:hover {
+  transform: translateY(-4px);
+  border-color: var(--biru);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.15);
+  text-decoration: none;
+}
+
+/* Lingkaran emoji: 56 piksel, biru muda transparan, berubah biru saat kartu disentuh */
+.ikon-kontak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: var(--biru-muda-transparan);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background-color 0.25s ease;
+}
+
+.kartu-kontak:hover .ikon-kontak {
+  background: var(--biru);
+}
+
+.kartu-kontak h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--biru-gelap);
+  margin-bottom: 0.25rem;
+}
+
+/* Alamat atau username: ukuran kecil, mudah dipisahkan dari judul */
+.kontak-detail {
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+/* Teks ajakan: biru utama dan agak tebal */
+.kontak-ajakan {
+  display: block;
+  margin-top: 1rem;
+  color: var(--biru);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Kotak ketersediaan: lebar terbatas, di tengah, dengan jarak dari kartu di atasnya */
+.ketersediaan {
+  max-width: 560px;
+  margin: 3rem auto 0;
+  padding: 2rem 1.75rem;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius-kartu);
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.status-judul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--biru-gelap);
+  margin-bottom: 0.5rem;
+}
+
+/* Titik hijau kecil dengan lingkaran cahaya lembut */
+.status-titik {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hijau);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+}
+
+.status-pendukung {
+  margin-bottom: 1.5rem;
+}
+
+/* ===== 7. PENUTUP (BAGIAN PALING BAWAH, GELAP) ===== */
+.site-footer {
+  background: var(--biru-gelap);
+  color: var(--biru-muda);
+  padding-block: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.site-footer p + p {
+  margin-top: 0.25rem;
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--biru-muda);
+}
+
+/* ===== 9. TAMPILAN RESPONSIF ===== */
+/* Urutan penting: aturan yang lebih kecil layarnya ditulis paling bawah */
+
+/* Layar sedang: 991 piksel ke bawah, kartu Skills dan Contact jadi dua kolom */
+@media (max-width: 991px) {
+  .skills-grid,
+  .kontak-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet dan ponsel besar: 767 piksel ke bawah */
+@media (max-width: 767px) {
+  /* Ruang atas saat menggulir mengikuti tinggi menu dua baris (sekitar 120 piksel) */
+  html {
+    scroll-padding-top: 7.5rem;
+  }
+
+  /* Jarak antar bagian dikurangi */
+  .bagian {
+    padding-block: 4rem;
+  }
+
+  .pengantar-bagian {
+    margin-bottom: 2rem;
+  }
+
+  /* Menu dua baris: logo di atas, tautan di bawah, rata tengah */
+  .header-isi {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 0.25rem 1rem;
+  }
+
+  /* Bagian Home: jarak dikurangi, foto di atas, teks rata tengah */
+  #home {
+    padding-block: 2.5rem 3rem;
+  }
+
+  .hero {
+    gap: 2rem;
+  }
+
+  .hero-foto {
+    order: -1;
+  }
+
+  .hero-teks {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-profesi {
+    font-size: 1.1rem;
+  }
+
+  .hero-deskripsi {
+    margin-inline: auto;
+  }
+
+  .hero-tombol {
+    justify-content: center;
+  }
+
+  .hero-foto img {
+    width: 240px;
+  }
+
+  /* Kartu Projects satu kolom */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ponsel kecil: 480 piksel ke bawah */
+@media (max-width: 480px) {
+  .bagian {
+    padding-block: 3.25rem;
+  }
+
+  .skills-grid,
+  .kontak-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tombol Home tersusun vertikal dan memenuhi lebar */
+  .hero-tombol {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-foto img {
+    width: 200px;
+  }
+
+  /* Ruang dalam kotak ketersediaan dibuat lebih kecil */
+  .ketersediaan {
+    padding: 1.5rem 1.25rem;
+  }
+}
